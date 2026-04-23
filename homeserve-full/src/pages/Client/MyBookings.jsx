@@ -3,7 +3,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { bookingService } from '../../services/bookingService';
 import { serviceService } from '../../services/serviceService';
 import { reviewService } from '../../services/reviewService';
-import { formatCurrency } from '../../utils/currencyUtils';
+import { formatCurrency } from '../../utils/CurrencyUtils';
 import { useLanguage } from '../../contexts/LanguageContext';
 import Table from '../../components/ui/Table';
 import ReviewModal from '../../components/ReviewModal';
