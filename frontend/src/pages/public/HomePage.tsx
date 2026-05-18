@@ -166,7 +166,6 @@ export default function HomePage({ onSwitchLang }: { onSwitchLang: (lng: 'en' | 
     <div className="min-h-screen font-sans selection:bg-emerald-500 selection:text-white bg-mesh dark:bg-slate-900 transition-colors">
       <SiteHeader onSwitchLang={onSwitchLang} />
 
-      {/* Hero section */}
       <section id="hero" className="relative pt-20 pb-28 md:pt-32 md:pb-40 overflow-hidden">
         <div className="mx-auto max-w-screen-xl px-4 text-center lg:px-8 relative z-10">
           <motion.div 
@@ -247,7 +246,6 @@ export default function HomePage({ onSwitchLang }: { onSwitchLang: (lng: 'en' | 
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-50/90 dark:to-slate-900/90 pointer-events-none"></div>
       </section>
 
-      {/* Stats banner */}
       <section className="relative -mt-16 z-20">
         <div className="mx-auto max-w-screen-xl px-4 lg:px-8">
           <div className="grid gap-4 sm:grid-cols-3">
@@ -273,7 +271,6 @@ export default function HomePage({ onSwitchLang }: { onSwitchLang: (lng: 'en' | 
         </div>
       </section>
 
-      {/* Features */}
       <section className="bg-slate-50/50 dark:bg-slate-900/50 py-24">
         <div className="mx-auto grid max-w-screen-xl gap-10 px-4 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
           {features.map(({ Icon, title, desc, ring }, i) => (
@@ -295,7 +292,6 @@ export default function HomePage({ onSwitchLang }: { onSwitchLang: (lng: 'en' | 
         </div>
       </section>
 
-      {/* Categories */}
       <section id="categories" className="scroll-mt-24 bg-white/50 dark:bg-slate-800/50 py-24 border-y border-slate-100 dark:border-slate-800 backdrop-blur-xl">
         <div className="mx-auto max-w-screen-xl px-4 lg:px-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -334,7 +330,6 @@ export default function HomePage({ onSwitchLang }: { onSwitchLang: (lng: 'en' | 
         </div>
       </section>
 
-      {/* How it works */}
       <section id="how-it-works" className="scroll-mt-24 bg-slate-50/50 dark:bg-slate-900/50 py-24 relative overflow-hidden">
         <div className="mx-auto max-w-screen-xl px-4 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -344,9 +339,7 @@ export default function HomePage({ onSwitchLang }: { onSwitchLang: (lng: 'en' | 
           </div>
 
           <div className="grid gap-8 md:grid-cols-3 lg:gap-12 relative">
-            {/* Connecting line for desktop */}
             <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-slate-200 dark:bg-slate-700"></div>
-
             {howSteps.map(({ n, title, desc, Icon, tone }, i) => (
               <motion.div 
                 initial={{ opacity: 0, y: 50 }}
@@ -377,7 +370,6 @@ export default function HomePage({ onSwitchLang }: { onSwitchLang: (lng: 'en' | 
         </div>
       </section>
 
-      {/* Testimonials */}
       <section className="py-24 bg-white/50 dark:bg-slate-800/50 border-y border-slate-100 dark:border-slate-800 backdrop-blur-xl">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -433,7 +425,6 @@ export default function HomePage({ onSwitchLang }: { onSwitchLang: (lng: 'en' | 
         </div>
       </section>
 
-      {/* CTA sections */}
       <section id="pricing" className="py-24 bg-transparent relative z-10">
   <div className="mx-auto max-w-screen-xl px-4 lg:px-8">
     <motion.div 
@@ -443,7 +434,6 @@ export default function HomePage({ onSwitchLang }: { onSwitchLang: (lng: 'en' | 
       transition={{ duration: 0.8 }}
       className="rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 text-white shadow-2xl relative"
     >
-      {/* Decorative background circles */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-blue-600/20 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-emerald-500/20 blur-3xl"></div>
       
@@ -488,7 +478,7 @@ export default function HomePage({ onSwitchLang }: { onSwitchLang: (lng: 'en' | 
           <p className="mt-4 text-sm font-medium text-blue-200/80 text-center">{t('avgIncomeHint', 'Earn up to $1,500/week')}</p>
         </div>
       </div>
-    </motion.div>  {/* Fixed: was </div> */}
+    </motion.div>
   </div>
 </section>
 

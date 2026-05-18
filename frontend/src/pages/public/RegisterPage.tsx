@@ -75,7 +75,6 @@ export default function RegisterPage() {
           <Card className="border-0 shadow-2xl shadow-blue-900/10 p-8 sm:p-10 rounded-3xl">
             <form onSubmit={onSubmit} className="space-y-6">
               
-              {/* Role Selection Tabs */}
               <div>
                 <label className={labelClass}>{t('role')}</label>
                 <div className="flex p-1 rounded-xl bg-slate-100/80 border border-slate-200">

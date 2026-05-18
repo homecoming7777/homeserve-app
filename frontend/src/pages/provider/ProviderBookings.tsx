@@ -36,7 +36,6 @@ export default function ProviderBookings() {
   }, []);
 
   const onUpdate = async (id: number, status: 'accepted' | 'rejected') => {
-    // Optimistic update
     setBookings((prev) => prev.map((b) => (b.id === id ? { ...b, status } : b)));
     try {
       await bookingsApi.updateBookingStatus(id, status);
@@ -44,12 +43,11 @@ export default function ProviderBookings() {
       load(true);
     } catch (e: any) {
       toast.error(e?.response?.data?.message || 'Update failed');
-      load(true); // revert on failure
+      load(true);
     }
   };
 
   const onMarkDone = async (id: number) => {
-    // Optimistic update
     setBookings((prev) => prev.map((b) => (b.id === id ? { ...b, provider_completed_at: new Date().toISOString() } : b)));
     try {
       await bookingsApi.providerMarkCompleted(id);
@@ -57,7 +55,7 @@ export default function ProviderBookings() {
       load(true);
     } catch (e: any) {
       toast.error(e?.response?.data?.message || 'Failed');
-      load(true); // revert on failure
+      load(true);
     }
   };
 

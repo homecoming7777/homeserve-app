@@ -76,15 +76,14 @@ export default function ClientServices() {
   }, [params]);
 
   const onToggleFavorite = async (serviceId: number) => {
-    // Optimistic update
+    
     setServices((prev) => prev.map((s) => (s.id === serviceId ? { ...s, is_favorite: !s.is_favorite } : s)));
     try {
       const result = await servicesApi.toggleFavorite(serviceId);
-      // Sync with server state just in case
       setServices((prev) => prev.map((s) => (s.id === serviceId ? { ...s, is_favorite: result.is_favorite } : s)));
     } catch {
       toast.error(t('failedUpdateFavorites'));
-      // Revert on failure
+      
       setServices((prev) => prev.map((s) => (s.id === serviceId ? { ...s, is_favorite: !s.is_favorite } : s)));
     }
   };
@@ -101,7 +100,6 @@ export default function ClientServices() {
           <p className="mt-2 text-base text-slate-500 font-medium">{t('browseBookServices')}</p>
         </div>
         
-        {/* Filters */}
         <div className="flex flex-wrap items-center gap-3 p-2 bg-slate-100/50 rounded-2xl border border-slate-200/60">
           <Button variant="secondary" onClick={detectLocation} className="!py-2.5 bg-white">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>

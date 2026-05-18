@@ -32,7 +32,6 @@ export default function ProviderMyServices() {
   const onDelete = async (id: number) => {
     if (!confirm('Delete service?')) return;
     
-    // Optimistic update
     const previousServices = [...services];
     setServices((prev) => prev.filter((s) => s.id !== id));
     
@@ -42,7 +41,7 @@ export default function ProviderMyServices() {
       load(true);
     } catch (e: any) {
       toast.error(e?.response?.data?.message || 'Delete failed');
-      setServices(previousServices); // revert
+      setServices(previousServices);
     }
   };
 

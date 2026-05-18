@@ -59,7 +59,7 @@ export default function ClientServiceDetails() {
       setShouldAutoOpenPayment(Boolean(parsed?.autoOpenPayment));
       localStorage.removeItem('assistant_booking_prefill');
     } catch {
-      // ignore malformed assistant payload
+      
     }
   }, []);
 
@@ -98,7 +98,7 @@ export default function ClientServiceDetails() {
       toast.success(t('bookService'));
       setOpenPay(false);
 
-      // Wallet deduct happens server-side; update local balance optimistically
+      
       if (method === 'wallet' && auth) {
         const newBalance = Math.max(0, walletBalance - amount).toFixed(2);
         setAuthDirect({ ...auth, user: { ...auth.user, wallet_balance: newBalance } });

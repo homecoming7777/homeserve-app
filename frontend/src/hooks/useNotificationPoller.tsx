@@ -14,7 +14,7 @@ export function useNotificationPoller(role: 'client' | 'provider' | 'admin') {
     const poll = async () => {
       try {
         const res = await fetchNotifications();
-        // Extract array from paginator if necessary
+        
         const notifications: Notification[] = Array.isArray(res) ? res : (res as any).data || [];
         
         if (!isMounted) return;
@@ -25,16 +25,13 @@ export function useNotificationPoller(role: 'client' | 'provider' | 'admin') {
         const newUnread = unread.filter((n: Notification) => !seenIds.current.has(n.id));
 
         newUnread.forEach((notification: Notification) => {
-          // Add to seen so we don't toast it again
           seenIds.current.add(notification.id);
 
-          // Show custom toast
           toast((t) => (
             <div
               className="cursor-pointer"
               onClick={() => {
                 toast.dismiss(t.id);
-                // Navigate based on role
                 if (role === 'client') navigate('/client/notifications');
                 else if (role === 'provider') navigate('/provider/notifications');
                 else if (role === 'admin') navigate('/admin/notifications'); // fallback if needed
@@ -71,26 +68,16 @@ export function useNotificationPoller(role: 'client' | 'provider' | 'admin') {
           });
         });
 
-        // Initialize seenIds on first load without toasting everything
-        // If this is the first poll and seenIds is empty, we just mark all current unread as seen
-        // Wait, if it's the first load, the user might want to see them?
-        // Actually, no, if they just logged in, we only want new ones to pop up while they are active.
-        // But for the sake of simplicity, we add all fetched to seenIds so we only alert for FUTURE ones.
         if (seenIds.current.size === 0 && unread.length > 0) {
-          // If we had new ones, we just toasted them. 
-          // So let's make sure everything we fetched is in seenIds
           unread.forEach((n: Notification) => seenIds.current.add(n.id));
         }
 
       } catch (err) {
-        // ignore polling errors
       }
     };
 
-    // Run once immediately
     poll();
 
-    // Then poll every 15 seconds
     const intervalId = setInterval(poll, 15000);
 
     return () => {

@@ -74,7 +74,6 @@ export default function QuickStartBanner({ role }: { role: 'client' | 'provider'
   return (
     <div className="mb-8 animate-in slide-in-from-top-4 fade-in duration-500">
       <Card className="border-0 bg-gradient-to-br from-blue-600 to-indigo-800 dark:from-blue-900 dark:to-slate-900 overflow-hidden relative shadow-premium">
-        {/* Decorative elements */}
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-white/10 blur-3xl"></div>
         <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-48 h-48 rounded-full bg-emerald-400/20 blur-2xl"></div>
 
@@ -82,7 +81,7 @@ export default function QuickStartBanner({ role }: { role: 'client' | 'provider'
           <div className="flex flex-wrap gap-4 items-start justify-between mb-8">
             <div>
               <h2 className="text-2xl font-extrabold text-white tracking-tight flex items-center gap-2">
-                👋 {t('welcomeGettingStarted', 'Welcome! Getting Started is Easy')}
+                 {t('welcomeGettingStarted', 'Welcome! Getting Started is Easy')}
               </h2>
               <p className="text-blue-100 font-medium mt-1">
                 {t('quickStartSub', 'Follow these three simple steps to make the most out of your account.')}

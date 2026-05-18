@@ -170,7 +170,6 @@ export default function SiteHeader({ onSwitchLang }: SiteHeaderProps) {
         </div>
       </div>
       
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-4 space-y-4">
           <nav className="flex flex-col gap-4">
