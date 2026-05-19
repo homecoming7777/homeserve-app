@@ -60,7 +60,6 @@ export default function ProviderDashboard() {
     const mountedRef = { value: true };
     loadStats(mountedRef, false);
 
-    // Keep provider earnings fresh when payments are completed by clients.
     const interval = window.setInterval(() => loadStats(mountedRef, true), 15000);
     const onFocus = () => loadStats(mountedRef, true);
     window.addEventListener('focus', onFocus);
